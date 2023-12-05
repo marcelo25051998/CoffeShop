@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "686336503451",
+    "project_id": "projeto-integrador-pit-ii",
+    "storage_bucket": "projeto-integrador-pit-ii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686336503451:android:5507ce494fc04c0b44a03e",
+        "android_client_info": {
+          "package_name": "com.semcodar.tutorialffyt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbydnZl-5XUgDhaZcGqQxnmL8F718NYE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

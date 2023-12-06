@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>LOWCODE</string>
+	<string>Shopcoffe</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -33,7 +33,19 @@
             </array>
         </dict>
 
+        <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>lowcode.com</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+        <string>lowcode</string>
+        </array>
+        </dict>
     </array>
+    <key>FlutterDeepLinkingEnabled</key>
+    <true/>
 
 
 	<key>CFBundleVersion</key>

@@ -2,9 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/cadastro/cadastro_widget.dart';
-import '/pages/login_copy/login_copy_widget.dart';
-import '/pages/menu_cardapio/menu_cardapio_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,6 +32,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     _model.senhaController ??= TextEditingController();
     _model.senhaFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -287,6 +286,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
+                                  GoRouter.of(context).prepareAuthEvent();
+
                                   final user =
                                       await authManager.signInWithEmail(
                                     context,
@@ -297,14 +298,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     return;
                                   }
 
-                                  Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          MenuCardapioWidget(),
-                                    ),
-                                    (r) => false,
-                                  );
+                                  context.goNamedAuth(
+                                      'MenuCardapio', context.mounted);
                                 },
                                 text: 'Entrar',
                                 icon: FaIcon(
@@ -361,17 +356,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           AlignmentDirectional(1.00, 0.00),
                                       child: FFButtonWidget(
                                         onPressed: () async {
-                                          Navigator.pushAndRemoveUntil(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 150),
-                                              reverseDuration:
-                                                  Duration(milliseconds: 150),
-                                              child: CadastroWidget(),
-                                            ),
-                                            (r) => false,
+                                          context.goNamed(
+                                            'cadastro',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 150),
+                                              ),
+                                            },
                                           );
                                         },
                                         text: 'Cadastrar',
@@ -440,12 +436,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginCopyWidget(),
-                        ),
-                      );
+                      context.pushNamed('loginCopy');
+
                       if (_model.emailController.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

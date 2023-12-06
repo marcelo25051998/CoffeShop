@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/pages/menu_cardapio/menu_cardapio_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -94,6 +93,8 @@ class _UsuarioWidgetState extends State<UsuarioWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -441,12 +442,8 @@ class _UsuarioWidgetState extends State<UsuarioWidget>
                           displayName: _model.textController2.text,
                           phoneNumber: currentPhoneNumber,
                         ));
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MenuCardapioWidget(),
-                          ),
-                        );
+
+                        context.pushNamed('MenuCardapio');
                       },
                       text: 'Salvar alterações',
                       options: FFButtonOptions(

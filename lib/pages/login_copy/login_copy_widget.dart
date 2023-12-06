@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,6 +29,8 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
 
     _model.emailController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -213,12 +214,8 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                                       );
                                     },
                                   );
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => LoginWidget(),
-                                    ),
-                                  );
+
+                                  context.pushNamed('login');
                                 },
                                 text: 'Enviar',
                                 options: FFButtonOptions(
@@ -271,12 +268,7 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                 size: 24.0,
               ),
               onPressed: () async {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginWidget(),
-                  ),
-                );
+                context.pushNamed('login');
               },
             ),
           ),

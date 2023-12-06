@@ -4,10 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/carrinho/carrinho_widget.dart';
-import '/pages/login/login_widget.dart';
-import '/pages/produto/produto_widget.dart';
-import '/pages/usuario/usuario_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,6 +28,8 @@ class _MenuCardapioWidgetState extends State<MenuCardapioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MenuCardapioModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -79,12 +77,7 @@ class _MenuCardapioWidgetState extends State<MenuCardapioWidget> {
                   size: 24.0,
                 ),
                 onPressed: () async {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginWidget(),
-                    ),
-                  );
+                  context.pushNamed('login');
                 },
               ),
             ),
@@ -136,12 +129,7 @@ class _MenuCardapioWidgetState extends State<MenuCardapioWidget> {
                           size: 24.0,
                         ),
                         onPressed: () async {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => UsuarioWidget(),
-                            ),
-                          );
+                          context.pushNamed('usuario');
                         },
                       ),
                     ],
@@ -239,14 +227,14 @@ class _MenuCardapioWidgetState extends State<MenuCardapioWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => ProdutoWidget(
-                                            refproduto: listViewProdutosRecord
-                                                .reference,
+                                      context.pushNamed(
+                                        'produto',
+                                        queryParameters: {
+                                          'refproduto': serializeParam(
+                                            listViewProdutosRecord.reference,
+                                            ParamType.DocumentReference,
                                           ),
-                                        ),
+                                        }.withoutNulls,
                                       );
                                     },
                                     child: Row(
@@ -362,12 +350,7 @@ class _MenuCardapioWidgetState extends State<MenuCardapioWidget> {
                     size: 24.0,
                   ),
                   onPressed: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CarrinhoWidget(),
-                      ),
-                    );
+                    context.pushNamed('Carrinho');
                   },
                 ),
               ),

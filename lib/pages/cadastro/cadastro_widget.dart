@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/login/login_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,6 +39,8 @@ class _CadastroWidgetState extends State<CadastroWidget> {
 
     _model.senhaconfirmarController ??= TextEditingController();
     _model.senhaconfirmarFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -506,6 +507,7 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                                 onPressed: () async {
                                   if (_model.senhaController.text ==
                                       _model.senhaconfirmarController.text) {
+                                    GoRouter.of(context).prepareAuthEvent();
                                     if (_model.senhaController.text !=
                                         _model.senhaconfirmarController.text) {
                                       ScaffoldMessenger.of(context)
@@ -597,12 +599,8 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                                     );
                                   }
 
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => LoginWidget(),
-                                    ),
-                                  );
+                                  context.pushNamedAuth(
+                                      'login', context.mounted);
 
                                   setState(() {});
                                 },
@@ -655,17 +653,17 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        Navigator.pushAndRemoveUntil(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.fade,
-                                            duration:
-                                                Duration(milliseconds: 150),
-                                            reverseDuration:
-                                                Duration(milliseconds: 150),
-                                            child: LoginWidget(),
-                                          ),
-                                          (r) => false,
+                                        context.goNamed(
+                                          'login',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 150),
+                                            ),
+                                          },
                                         );
                                       },
                                       text: 'Login',

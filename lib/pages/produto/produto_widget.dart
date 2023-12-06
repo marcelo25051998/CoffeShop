@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/menu_cardapio/menu_cardapio_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,6 +32,8 @@ class _ProdutoWidgetState extends State<ProdutoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProdutoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -97,12 +98,7 @@ class _ProdutoWidgetState extends State<ProdutoWidget> {
                   size: 30.0,
                 ),
                 onPressed: () async {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MenuCardapioWidget(),
-                    ),
-                  );
+                  context.pushNamed('MenuCardapio');
                 },
               ),
               actions: [],
@@ -204,7 +200,7 @@ class _ProdutoWidgetState extends State<ProdutoWidget> {
                                     );
                                   },
                                 );
-                                Navigator.pop(context);
+                                context.safePop();
                               },
                               text: 'Adicionar ao carrinho',
                               options: FFButtonOptions(

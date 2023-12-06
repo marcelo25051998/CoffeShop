@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/menu_cardapio/menu_cardapio_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -33,6 +32,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CarrinhoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -79,12 +80,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                 size: 24.0,
               ),
               onPressed: () async {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MenuCardapioWidget(),
-                  ),
-                );
+                context.pushNamed('MenuCardapio');
               },
             ),
           ),

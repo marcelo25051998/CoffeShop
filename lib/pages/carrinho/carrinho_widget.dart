@@ -366,6 +366,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                     }
                     _model.paymentId = paymentResponse.paymentId ?? '';
 
+                    context.pushNamed('CarrinhoCopy');
+
                     setState(() {});
                   },
                   text: 'Finalizar compra',

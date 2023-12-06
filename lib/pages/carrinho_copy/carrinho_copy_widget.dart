@@ -116,39 +116,13 @@ class _CarrinhoCopyWidgetState extends State<CarrinhoCopyWidget> {
                               width: 2.0,
                             ),
                           ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 8.0, 12.0, 8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.network(
-                                            'https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMHx8ZW50cmVnYXxlbnwwfHx8fDE3MDE4MjM5MTZ8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                                            width: 1585.0,
-                                            height: 350.0,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1515442261605-65987783cb6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxjb2ZmZXxlbnwwfHx8fDE3MDE4MjU4NDd8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                              width: 700.0,
+                              height: 600.0,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
@@ -160,7 +134,7 @@ class _CarrinhoCopyWidgetState extends State<CarrinhoCopyWidget> {
                               0.0, 0.0, 0.0, 8.0),
                           child: Container(
                             width: double.infinity,
-                            height: 60.0,
+                            height: 140.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).grayIcon,
                               borderRadius: BorderRadius.circular(8.0),
@@ -195,25 +169,32 @@ class _CarrinhoCopyWidgetState extends State<CarrinhoCopyWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 4.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Muito obrigado!!! o pedido está sendo preparado e logo sairá para entrega',
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color:
-                                                              Color(0xFF010718),
-                                                          fontSize: 20.0,
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                        ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.00, 0.00),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'O pedido está sendo preparado e logo sairá para entrega',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: Color(
+                                                                0xFF010718),
+                                                            fontSize: 20.0,
+                                                            fontWeight:
+                                                                FontWeight.w800,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
